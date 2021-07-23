@@ -3,21 +3,36 @@ package com.lucky.tank;
 import java.awt.*;
 
 public class Bullet {
-    private int x = 200,y=200;
+    private int x,y;
     private static final int SPEED = 10;
     private Dir dir = Dir.DOWN;
+    private boolean live = true;
+    private TankFrame tf = null;
 
-    public Bullet(int x, int y, Dir dir) {
-        this.x = x;
-        this.y = y;
+    public Dir getDir() {
+        return dir;
+    }
+
+    public void setDir(Dir dir) {
         this.dir = dir;
     }
 
+    public Bullet(int x, int y, Dir dir,TankFrame tf) {
+        this.x = x;
+        this.y = y;
+        this.dir = dir;
+        this.tf = tf;
+    }
+
     public void paint(Graphics g){
+        if(!live){
+            tf.bullets.remove(this);
+        }
         Color color = g.getColor();
         g.setColor(Color.RED);
         g.fillOval(x,y,10,10);
         g.setColor(color);
+        move();
     }
 
     public void move(){
@@ -35,5 +50,6 @@ public class Bullet {
                 x+=SPEED;
                 break;
         }
+        if(x<0 || y<0 || x>TankFrame.GAME_WIDTH || y > TankFrame.GAME_HEIGHT) live = false;
     }
 }

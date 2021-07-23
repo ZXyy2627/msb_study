@@ -5,11 +5,13 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.List;
+import java.util.ArrayList;
 
 public class TankFrame extends Frame {
-    private static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;
-    Tank tank = new Tank(200,200,Dir.DOWN);
-    Bullet bullet = new Bullet(200,200,Dir.DOWN);
+    static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;
+    Tank tank = new Tank(200,200,Dir.DOWN,this);
+    List<Bullet> bullets = new ArrayList<Bullet>();
     public TankFrame(){
         setVisible(true);
         setSize(800,600);
@@ -43,10 +45,14 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
+        Color color = g.getColor();
+        g.setColor(Color.WHITE);
+        g.drawString("子弹的数量是:"+bullets.size(),10,60);
+        g.setColor(color);
         tank.paint(g);
-        tank.move();
-        bullet.paint(g);
-        bullet.move();
+        for (int i = 0; i < bullets.size(); i++) {
+            bullets.get(i).paint(g);
+        }
     }
 
     class MyKeyListener extends KeyAdapter{
@@ -94,6 +100,8 @@ public class TankFrame extends Frame {
                 case KeyEvent.VK_RIGHT:
                     right = false;
                     break;
+                case KeyEvent.VK_CONTROL:
+                    tank.fire();
                 default:
                     break;
             }
