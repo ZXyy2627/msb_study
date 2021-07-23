@@ -1,0 +1,115 @@
+package com.lucky.tank;
+
+import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class TankFrame extends Frame {
+    private static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;
+    Tank tank = new Tank(200,200,Dir.DOWN);
+    Bullet bullet = new Bullet(200,200,Dir.DOWN);
+    public TankFrame(){
+        setVisible(true);
+        setSize(800,600);
+        setResizable(false);
+        setTitle("坦克大战");
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+        //添加键盘监听
+        addKeyListener(new MyKeyListener());
+    }
+
+    Image offScreenImage = null;
+
+    @Override
+    public void update(Graphics g) {
+        if (offScreenImage == null) {
+            offScreenImage = this.createImage(GAME_WIDTH,GAME_HEIGHT);
+        }
+        Graphics gOffScreen = offScreenImage.getGraphics();
+        Color color = gOffScreen.getColor();
+        gOffScreen.setColor(Color.BLACK);
+        gOffScreen.fillRect(0,0,GAME_WIDTH,GAME_HEIGHT);
+        gOffScreen.setColor(color);
+        paint(gOffScreen);
+        g.drawImage(offScreenImage, 0, 0, null);
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        tank.paint(g);
+        tank.move();
+        bullet.paint(g);
+        bullet.move();
+    }
+
+    class MyKeyListener extends KeyAdapter{
+        boolean up = false;
+        boolean down = false;
+        boolean left = false;
+        boolean right = false;
+        @Override
+        public void keyPressed(KeyEvent e) {
+            int keyCode = e.getKeyCode();
+            switch (keyCode){
+                case KeyEvent.VK_UP:
+                    up = true;
+                    break;
+                case KeyEvent.VK_DOWN:
+                    down = true;
+                    break;
+                case KeyEvent.VK_LEFT:
+                    left = true;
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    right = true;
+                    break;
+                default:
+                    break;
+            }
+            setMainTankDir();
+        }
+
+
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            int keyCode = e.getKeyCode();
+            switch (keyCode){
+                case KeyEvent.VK_UP:
+                    up = false;
+                    break;
+                case KeyEvent.VK_DOWN:
+                    down = false;
+                    break;
+                case KeyEvent.VK_LEFT:
+                    left = false;
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    right = false;
+                    break;
+                default:
+                    break;
+            }
+            setMainTankDir();
+        }
+
+        private void setMainTankDir() {
+            if(!up && !down && !left && !right){
+                tank.setMoving(false);
+            }else{
+                tank.setMoving(true);
+                if(up) tank.setDir(Dir.UP);
+                if(down) tank.setDir(Dir.DOWN);
+                if(left) tank.setDir(Dir.LEFT);
+                if(right) tank.setDir(Dir.RIGHT);
+            }
+        }
+    }
+}
