@@ -3,6 +3,8 @@ package com.lucky.tank;
 import java.awt.*;
 
 public class Bullet {
+    public  static int WIDTH = ResourceMgr.bulletD.getWidth();
+    public  static int HEIGHT = ResourceMgr.bulletD.getHeight();
     private int x,y;
     private static final int SPEED = 10;
     private Dir dir = Dir.DOWN;
@@ -28,10 +30,20 @@ public class Bullet {
         if(!live){
             tf.bullets.remove(this);
         }
-        Color color = g.getColor();
-        g.setColor(Color.RED);
-        g.fillOval(x,y,10,10);
-        g.setColor(color);
+        switch (dir) {
+            case UP:
+                g.drawImage(ResourceMgr.bulletU,x,y,null);
+                break;
+            case DOWN:
+                g.drawImage(ResourceMgr.bulletD,x,y,null);
+                break;
+            case LEFT:
+                g.drawImage(ResourceMgr.bulletL,x,y,null);
+                break;
+            case RIGHT:
+                g.drawImage(ResourceMgr.bulletR,x,y,null);
+                break;
+        }
         move();
     }
 

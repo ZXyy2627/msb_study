@@ -3,6 +3,9 @@ package com.lucky.tank;
 import java.awt.*;
 
 public class Tank {
+    public  static int WIDTH = ResourceMgr.tankD.getWidth();
+    public  static int HEIGHT = ResourceMgr.tankD.getHeight();
+
     private int x=200,y=200;
     private static final int SPEED = 5;
     private Dir dir = Dir.DOWN;
@@ -68,24 +71,8 @@ public class Tank {
     }
 
     public void fire(){
-
-        Bullet bullet = null;
-        switch (dir){
-            case UP:
-                bullet = new Bullet(x+25,y,dir,tf);
-               break;
-            case DOWN:
-                bullet = new Bullet(x+25,y+50,dir,tf);
-                break;
-            case LEFT:
-                bullet = new Bullet(x,y+25,dir,tf);
-                break;
-            case RIGHT:
-                bullet = new Bullet(x+50,y+25,dir,tf);
-                break;
-            default:
-                break;
-        }
-        tf.bullets.add(bullet);
+        int bX = x+Tank.WIDTH/2-Bullet.WIDTH/2;
+        int bY = y+Tank.HEIGHT/2-Bullet.HEIGHT/2;
+        tf.bullets.add(new Bullet(bX,bY,this.dir,this.tf));
     }
 }
