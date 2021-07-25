@@ -10,8 +10,9 @@ import java.util.ArrayList;
 
 public class TankFrame extends Frame {
     static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;
-    Tank tank = new Tank(200,200,Dir.DOWN,this);
+    Tank tank = new Tank(200,400,Dir.DOWN,this);
     List<Bullet> bullets = new ArrayList<Bullet>();
+    List<Tank> enemies = new ArrayList<>();
     public TankFrame(){
         setVisible(true);
         setSize(800,600);
@@ -48,10 +49,15 @@ public class TankFrame extends Frame {
         Color color = g.getColor();
         g.setColor(Color.WHITE);
         g.drawString("子弹的数量是:"+bullets.size(),10,60);
+        g.drawString("坦克的数量是:"+enemies.size(),10,90);
         g.setColor(color);
         tank.paint(g);
         for (int i = 0; i < bullets.size(); i++) {
             bullets.get(i).paint(g);
+        }
+
+        for (int i = 0; i < enemies.size(); i++) {
+            enemies.get(i).paint(g);
         }
     }
 
