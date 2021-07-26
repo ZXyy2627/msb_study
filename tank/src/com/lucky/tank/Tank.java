@@ -99,7 +99,7 @@ public class Tank {
                 x+=SPEED;
                 break;
         }
-        if(random.nextInt(10)>8) this.fire();
+        if(this.group == Group.BAD && random.nextInt(100)>95) this.fire();
     }
 
     public void fire(){

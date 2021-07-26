@@ -13,8 +13,9 @@ public class TankFrame extends Frame {
     Tank tank = new Tank(200,400,Dir.DOWN, Group.GOOD,this);
     List<Bullet> bullets = new ArrayList<Bullet>();
     List<Tank> enemies = new ArrayList<>();
+    List<Explode> explodes = new ArrayList<>();
 
-    Explode e = new Explode(100, 100, this);
+    //Explode e = new Explode(100, 100, this);
     public TankFrame(){
         setVisible(true);
         setSize(800,600);
@@ -52,6 +53,7 @@ public class TankFrame extends Frame {
         g.setColor(Color.WHITE);
         g.drawString("子弹的数量是:"+bullets.size(),10,60);
         g.drawString("坦克的数量是:"+enemies.size(),10,90);
+        g.drawString("爆炸额数量是:"+explodes.size(),10,120);
         g.setColor(color);
         tank.paint(g);
         for (int i = 0; i < bullets.size(); i++) {
@@ -62,12 +64,18 @@ public class TankFrame extends Frame {
             enemies.get(i).paint(g);
         }
 
+        for (int i = 0; i < explodes.size(); i++) {
+            explodes.get(i).paint(g);
+        }
+        //碰撞检测
         for (int i = 0; i < bullets.size(); i++) {
             for (int j = 0; j < enemies.size(); j++) {
                 bullets.get(i).collideWith(enemies.get(j));
             }
         }
-        e.paint(g);
+
+
+
 
     }
 
