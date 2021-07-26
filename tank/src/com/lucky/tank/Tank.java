@@ -1,21 +1,34 @@
 package com.lucky.tank;
 
 import java.awt.*;
+import java.util.Random;
 
 public class Tank {
     public  static int WIDTH = ResourceMgr.tankD.getWidth();
     public  static int HEIGHT = ResourceMgr.tankD.getHeight();
 
     private int x=200,y=200;
-    private static final int SPEED = 5;
+    private static final int SPEED = 1;
     private Dir dir = Dir.DOWN;
     private TankFrame tf = null;
-    private boolean moving = false;
+    private Group group = Group.BAD;
+    private boolean moving = true;
     private boolean living = true;
-    public Tank(int x, int y, Dir dir,TankFrame tf) {
+    private Random random = new Random();
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public Tank(int x, int y, Dir dir, Group group, TankFrame tf) {
         this.x = x;
         this.y = y;
         this.dir = dir;
+        this.group = group;
         this.tf = tf;
     }
 
@@ -86,12 +99,13 @@ public class Tank {
                 x+=SPEED;
                 break;
         }
+        if(random.nextInt(10)>8) this.fire();
     }
 
     public void fire(){
         int bX = x+Tank.WIDTH/2-Bullet.WIDTH/2;
         int bY = y+Tank.HEIGHT/2-Bullet.HEIGHT/2;
-        tf.bullets.add(new Bullet(bX,bY,this.dir,this.tf));
+        tf.bullets.add(new Bullet(bX,bY,this.dir,this.group,this.tf));
     }
 
     public void die() {

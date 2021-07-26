@@ -10,6 +10,15 @@ public class Bullet {
     private Dir dir = Dir.DOWN;
     private boolean living = true;
     private TankFrame tf = null;
+    private Group group = Group.BAD;
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 
     public Dir getDir() {
         return dir;
@@ -19,7 +28,7 @@ public class Bullet {
         this.dir = dir;
     }
 
-    public Bullet(int x, int y, Dir dir,TankFrame tf) {
+    public Bullet(int x, int y, Dir dir,Group group,TankFrame tf) {
         this.x = x;
         this.y = y;
         this.dir = dir;
@@ -66,6 +75,9 @@ public class Bullet {
     }
 
     public void collideWith(Tank tank) {
+        if(this.group == tank.getGroup()) return;
+
+        //每次做碰撞检测的时候，都new一个Rectangle对象，其实应该只用一个 不该使用多个  这是一个小BUG
         Rectangle rect1 = new Rectangle(this.x ,this.y , WIDTH, HEIGHT);
         Rectangle rect2 = new Rectangle(tank.getX(), tank.getY(),Tank.WIDTH, Tank.HEIGHT);
         if (rect1.intersects(rect2)) {
