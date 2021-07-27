@@ -8,7 +8,7 @@ public class Tank {
     public  static int HEIGHT = ResourceMgr.tankD.getHeight();
 
     private int x=200,y=200;
-    private static final int SPEED = 1;
+    private static final int SPEED = 3;
     private Dir dir = Dir.DOWN;
     private TankFrame tf = null;
     private Group group = Group.BAD;
@@ -103,6 +103,15 @@ public class Tank {
 
         if(this.group == Group.BAD)
             randomDir();
+
+        boundsCheck();
+    }
+
+    private void boundsCheck() {
+        if(this.x < 0 ) x=0;
+        if(this.y < 60) y=30;
+        if(this.x > TankFrame.GAME_WIDTH - Tank.WIDTH)  x = TankFrame.GAME_WIDTH - Tank.WIDTH;
+        if(this.y > TankFrame.GAME_HEIGHT - Tank.HEIGHT) y = TankFrame.GAME_HEIGHT - Tank.HEIGHT;
     }
 
     private void randomDir() {
