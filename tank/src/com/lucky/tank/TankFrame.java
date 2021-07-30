@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class TankFrame extends Frame {
-    static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;
+    static final int GAME_WIDTH = 1080,GAME_HEIGHT = 960;
     Tank tank = new Tank(200,400,Dir.DOWN, Group.GOOD,this);
     List<Bullet> bullets = new ArrayList<Bullet>();
     List<Tank> enemies = new ArrayList<>();
@@ -18,7 +18,7 @@ public class TankFrame extends Frame {
     //Explode e = new Explode(100, 100, this);
     public TankFrame(){
         setVisible(true);
-        setSize(800,600);
+        setSize(GAME_WIDTH,GAME_HEIGHT);
         setResizable(false);
         setTitle("坦克大战");
         addWindowListener(new WindowAdapter() {
