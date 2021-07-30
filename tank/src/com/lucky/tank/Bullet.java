@@ -12,6 +12,8 @@ public class Bullet {
     private TankFrame tf = null;
     private Group group = Group.BAD;
 
+    Rectangle rect = new Rectangle();
+
     public Group getGroup() {
         return group;
     }
@@ -34,6 +36,11 @@ public class Bullet {
         this.dir = dir;
         this.group = group;
         this.tf = tf;
+
+        rect.x = this.x;
+        rect.y = this.y;
+        rect.width = WIDTH;
+        rect.height = HEIGHT;
     }
 
     public void paint(Graphics g){
@@ -72,6 +79,8 @@ public class Bullet {
                 x+=SPEED;
                 break;
         }
+        rect.x = this.x;
+        rect.y = this.y;
         if(x<0 || y<0 || x>TankFrame.GAME_WIDTH || y > TankFrame.GAME_HEIGHT) living = false;
     }
 
@@ -79,9 +88,9 @@ public class Bullet {
         if(this.group == tank.getGroup()) return;
 
         //每次做碰撞检测的时候，都new一个Rectangle对象，其实应该只用一个 不该使用多个  这是一个小BUG
-        Rectangle rect1 = new Rectangle(this.x ,this.y , WIDTH, HEIGHT);
-        Rectangle rect2 = new Rectangle(tank.getX(), tank.getY(),Tank.WIDTH, Tank.HEIGHT);
-        if (rect1.intersects(rect2)) {
+//        Rectangle rect1 = new Rectangle(this.x ,this.y , WIDTH, HEIGHT);
+//        Rectangle rect2 = new Rectangle(tank.getX(), tank.getY(),Tank.WIDTH, Tank.HEIGHT);
+        if (rect.intersects(tank.rect)) {
             tank.die();
             this.die();
             int eX = tank.getX() + Tank.WIDTH / 2 - Explode.WIDTH / 2;
