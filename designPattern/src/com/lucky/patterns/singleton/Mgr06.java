@@ -4,7 +4,7 @@ package com.lucky.patterns.singleton;
  * 为了解决同步代码块产生的线程安全问题，使用双重检查
  */
 public class Mgr06 {
-    private static Mgr06 INSTANCE;
+    private static volatile Mgr06 INSTANCE;
 
     private Mgr06() {
     }
