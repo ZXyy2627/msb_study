@@ -4,8 +4,8 @@ import java.awt.*;
 import java.util.Random;
 
 public class Tank {
-    public  static int WIDTH = ResourceMgr.tankD.getWidth();
-    public  static int HEIGHT = ResourceMgr.tankD.getHeight();
+    public  static int WIDTH = ResourceMgr.goodTankD.getWidth();
+    public  static int HEIGHT = ResourceMgr.goodTankD.getHeight();
 
     private int x=200,y=200;
     private static final int SPEED = 3;
@@ -68,16 +68,16 @@ public class Tank {
         if(!living) tf.enemies.remove(this);
         switch (dir) {
             case UP:
-                g.drawImage(ResourceMgr.tankU,x,y,null);
+                g.drawImage(this.group == Group.GOOD?ResourceMgr.goodTankU:ResourceMgr.badTankU,x,y,null);
                 break;
             case DOWN:
-                g.drawImage(ResourceMgr.tankD,x,y,null);
+                g.drawImage(this.group == Group.GOOD?ResourceMgr.goodTankD:ResourceMgr.badTankD,x,y,null);
                 break;
             case LEFT:
-                g.drawImage(ResourceMgr.tankL,x,y,null);
+                g.drawImage(this.group == Group.GOOD?ResourceMgr.goodTankL:ResourceMgr.badTankL,x,y,null);
                 break;
             case RIGHT:
-                g.drawImage(ResourceMgr.tankR,x,y,null);
+                g.drawImage(this.group == Group.GOOD?ResourceMgr.goodTankR:ResourceMgr.badTankR,x,y,null);
                 break;
         }
         move();
