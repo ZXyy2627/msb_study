@@ -3,7 +3,8 @@ package com.lucky.tank;
 import java.awt.*;
 import java.util.Random;
 
-public class Tank extends AbstractTank{
+//public class Tank extends AbstractTank{
+public class Tank {
     public  static int WIDTH = ResourceMgr.goodTankD.getWidth();
     public  static int HEIGHT = ResourceMgr.goodTankD.getHeight();
 
@@ -13,16 +14,9 @@ public class Tank extends AbstractTank{
     private boolean moving = true;
     private boolean living = true;
     private Random random = new Random();
-
-
-
-    public TankFrame getTf() {
-        return tf;
-    }
-
-    public void setTf(TankFrame tf) {
-        this.tf = tf;
-    }
+    int x=200,y=200;
+    Rectangle rect = new Rectangle();
+    Group group = Group.BAD;
 
     public Group getGroup() {
         return group;
@@ -30,19 +24,6 @@ public class Tank extends AbstractTank{
 
     public void setGroup(Group group) {
         this.group = group;
-    }
-
-    public Tank(int x, int y, Dir dir, Group group, TankFrame tf) {
-        this.x = x;
-        this.y = y;
-        this.dir = dir;
-        this.group = group;
-        this.tf = tf;
-
-        rect.x = this.x;
-        rect.y = this.y;
-        rect.width = WIDTH;
-        rect.height = HEIGHT;
     }
 
     public int getX() {
@@ -60,6 +41,37 @@ public class Tank extends AbstractTank{
     public void setY(int y) {
         this.y = y;
     }
+
+    public Rectangle getRect() {
+        return rect;
+    }
+
+    public void setRect(Rectangle rect) {
+        this.rect = rect;
+    }
+
+    public TankFrame getTf() {
+        return tf;
+    }
+
+    public void setTf(TankFrame tf) {
+        this.tf = tf;
+    }
+
+
+    public Tank(int x, int y, Dir dir, Group group, TankFrame tf) {
+        this.x = x;
+        this.y = y;
+        this.dir = dir;
+        this.group = group;
+        this.tf = tf;
+
+        rect.x = this.x;
+        rect.y = this.y;
+        rect.width = WIDTH;
+        rect.height = HEIGHT;
+    }
+
 
     public boolean isMoving() {
         return moving;

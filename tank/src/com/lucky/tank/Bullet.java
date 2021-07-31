@@ -2,7 +2,8 @@ package com.lucky.tank;
 
 import java.awt.*;
 
-public class Bullet extends AbstractBullet{
+//public class Bullet extends AbstractBullet{
+public class Bullet{
     public  static int WIDTH = ResourceMgr.bulletD.getWidth();
     public  static int HEIGHT = ResourceMgr.bulletD.getHeight();
     private int x,y;
@@ -11,7 +12,7 @@ public class Bullet extends AbstractBullet{
     private boolean living = true;
     private TankFrame tf = null;
     private Group group = Group.BAD;
-    DefaultFactory defaultFactory = new DefaultFactory();
+    //DefaultFactory defaultFactory = new DefaultFactory();
 
     Rectangle rect = new Rectangle();
 
@@ -44,7 +45,7 @@ public class Bullet extends AbstractBullet{
         rect.height = HEIGHT;
     }
 
-    @Override
+
     public void paint(Graphics g){
         if(!living){
             tf.bullets.remove(this);
@@ -66,7 +67,7 @@ public class Bullet extends AbstractBullet{
         move();
     }
 
-    @Override
+
     public void move(){
         switch (dir) {
             case UP:
@@ -88,8 +89,8 @@ public class Bullet extends AbstractBullet{
     }
 
 
-    @Override
-    public void collideWith(AbstractTank tank) {
+    //public void collideWith(AbstractTank tank) {
+    public void collideWith(Tank tank){
         if(this.group == tank.getGroup()) return;
 
         //每次做碰撞检测的时候，都new一个Rectangle对象，其实应该只用一个 不该使用多个  这是一个小BUG
@@ -100,7 +101,8 @@ public class Bullet extends AbstractBullet{
             this.die();
             int eX = tank.getX() + Tank.WIDTH / 2 - Explode.WIDTH / 2;
             int eY = tank.getY() + Tank.HEIGHT/2-Explode.HEIGHT/2;
-            tf.explodes.add((Explode) defaultFactory.createExplode(eX,eY,tf));
+            tf.explodes.add(new Explode(eX,eY,tf));
+            //tf.explodes.add((Explode) defaultFactory.createExplode(eX,eY,tf));
         }
     }
 
