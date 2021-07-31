@@ -18,6 +18,15 @@ public class Tank {
     private Random random = new Random();
 
     Rectangle rect = new Rectangle();
+
+    public TankFrame getTf() {
+        return tf;
+    }
+
+    public void setTf(TankFrame tf) {
+        this.tf = tf;
+    }
+
     public Group getGroup() {
         return group;
     }
@@ -130,9 +139,7 @@ public class Tank {
     }
 
     public void fire(){
-        int bX = x+Tank.WIDTH/2-Bullet.WIDTH/2;
-        int bY = y+Tank.HEIGHT/2-Bullet.HEIGHT/2;
-        tf.bullets.add(new Bullet(bX,bY,this.dir,this.group,this.tf));
+       new MultiFireStrategy().fire(this);
     }
 
     public void die() {
