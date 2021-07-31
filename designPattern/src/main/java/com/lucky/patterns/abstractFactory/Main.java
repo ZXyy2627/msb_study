@@ -6,7 +6,7 @@ import com.lucky.patterns.simpleFactory.Moveable;
 public class Main {
     public static void main(String[] args) {
         //如果要替换，只需要将new 的Factory修改一下即可 ，下面的代码无需修改
-        AbstractFactory f = new ModernFactory();
+        AbstractFactory f = new MagicFactory();
         Vehicle vehicle = f.createVehicle();
         vehicle.go();
         Food food = f.createFood();
