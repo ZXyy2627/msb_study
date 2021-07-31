@@ -3,21 +3,18 @@ package com.lucky.tank;
 import java.awt.*;
 import java.util.Random;
 
-public class Tank {
+public class Tank extends AbstractTank{
     public  static int WIDTH = ResourceMgr.goodTankD.getWidth();
     public  static int HEIGHT = ResourceMgr.goodTankD.getHeight();
 
-
-    private int x=200,y=200;
     private static final int SPEED = 3;
     private Dir dir = Dir.DOWN;
     private TankFrame tf = null;
-    private Group group = Group.BAD;
     private boolean moving = true;
     private boolean living = true;
     private Random random = new Random();
 
-    Rectangle rect = new Rectangle();
+
 
     public TankFrame getTf() {
         return tf;
