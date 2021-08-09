@@ -9,10 +9,10 @@ public class MultiFireStrategy implements FireStrategy{
         int bX = tank.getX()+Tank.WIDTH/2-Bullet.WIDTH/2;
         int bY = tank.getY()+Tank.HEIGHT/2-Bullet.HEIGHT/2;
         List<Bullet> multiBullets = new ArrayList<>();
-        multiBullets.add(new Bullet(bX,bY,Dir.DOWN,tank.getGroup(), tank.getTf()));
-        multiBullets.add(new Bullet(bX,bY,Dir.UP,tank.getGroup(), tank.getTf()));
-        multiBullets.add(new Bullet(bX,bY,Dir.LEFT,tank.getGroup(), tank.getTf()));
-        multiBullets.add(new Bullet(bX,bY,Dir.RIGHT,tank.getGroup(), tank.getTf()));
-        tank.getTf().bullets.addAll(multiBullets);
+        multiBullets.add(new Bullet(bX,bY,Dir.DOWN,tank.getGroup(), tank.getGm()));
+        multiBullets.add(new Bullet(bX,bY,Dir.UP,tank.getGroup(), tank.getGm()));
+        multiBullets.add(new Bullet(bX,bY,Dir.LEFT,tank.getGroup(), tank.getGm()));
+        multiBullets.add(new Bullet(bX,bY,Dir.RIGHT,tank.getGroup(), tank.getGm()));
+        tank.getGm().bullets.addAll(multiBullets);
     }
 }

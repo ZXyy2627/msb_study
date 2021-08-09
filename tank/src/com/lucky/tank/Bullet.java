@@ -10,8 +10,8 @@ public class Bullet{
     private static final int SPEED = 10;
     private Dir dir = Dir.DOWN;
     private boolean living = true;
-    private TankFrame tf = null;
     private Group group = Group.BAD;
+    public GameModel gm = new GameModel();
     //DefaultFactory defaultFactory = new DefaultFactory();
 
     Rectangle rect = new Rectangle();
@@ -32,12 +32,12 @@ public class Bullet{
         this.dir = dir;
     }
 
-    public Bullet(int x, int y, Dir dir,Group group,TankFrame tf) {
+    public Bullet(int x, int y, Dir dir,Group group,GameModel gm) {
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.group = group;
-        this.tf = tf;
+        this.gm = gm;
 
         rect.x = this.x;
         rect.y = this.y;
@@ -48,7 +48,7 @@ public class Bullet{
 
     public void paint(Graphics g){
         if(!living){
-            tf.bullets.remove(this);
+            gm.bullets.remove(this);
         }
         switch (dir) {
             case UP:
@@ -101,7 +101,7 @@ public class Bullet{
             this.die();
             int eX = tank.getX() + Tank.WIDTH / 2 - Explode.WIDTH / 2;
             int eY = tank.getY() + Tank.HEIGHT/2-Explode.HEIGHT/2;
-            tf.explodes.add(new Explode(eX,eY,tf));
+            gm.explodes.add(new Explode(eX,eY,gm));
             //tf.explodes.add((Explode) defaultFactory.createExplode(eX,eY,tf));
         }
     }
