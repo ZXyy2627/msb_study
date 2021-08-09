@@ -3,7 +3,7 @@ package com.lucky.tank;
 import java.awt.*;
 
 //public class Bullet extends AbstractBullet{
-public class Bullet{
+public class Bullet extends GameObject{
     public  static int WIDTH = ResourceMgr.bulletD.getWidth();
     public  static int HEIGHT = ResourceMgr.bulletD.getHeight();
     private int x,y;
@@ -48,7 +48,7 @@ public class Bullet{
 
     public void paint(Graphics g){
         if(!living){
-            gm.bullets.remove(this);
+            gm.remove(this);
         }
         switch (dir) {
             case UP:
@@ -101,7 +101,7 @@ public class Bullet{
             this.die();
             int eX = tank.getX() + Tank.WIDTH / 2 - Explode.WIDTH / 2;
             int eY = tank.getY() + Tank.HEIGHT/2-Explode.HEIGHT/2;
-            gm.explodes.add(new Explode(eX,eY,gm));
+            gm.add(new Explode(eX,eY,gm));
             //tf.explodes.add((Explode) defaultFactory.createExplode(eX,eY,tf));
         }
     }

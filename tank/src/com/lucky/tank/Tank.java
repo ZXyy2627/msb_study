@@ -1,22 +1,24 @@
 package com.lucky.tank;
 
+import com.lucky.tank.strategy.MultiFireStrategy;
+
 import java.awt.*;
 import java.util.Random;
 
 //public class Tank extends AbstractTank{
-public class Tank {
+public class Tank extends GameObject{
     public  static int WIDTH = ResourceMgr.goodTankD.getWidth();
     public  static int HEIGHT = ResourceMgr.goodTankD.getHeight();
 
     private static final int SPEED = 3;
-    private Dir dir = Dir.DOWN;
+    public Dir dir = Dir.DOWN;
     private boolean moving = true;
     private boolean living = true;
     private Random random = new Random();
     int x=200,y=200;
     Rectangle rect = new Rectangle();
-    Group group = Group.BAD;
-    GameModel gm;
+    public Group group = Group.BAD;
+    public GameModel gm;
 
     public GameModel getGm() {
         return gm;
@@ -90,7 +92,7 @@ public class Tank {
     }
 
     public void paint(Graphics g){
-        if(!living) gm.enemies.remove(this);
+        if(!living) gm.remove(this);
         switch (dir) {
             case UP:
                 g.drawImage(this.group == Group.GOOD?ResourceMgr.goodTankU:ResourceMgr.badTankU,x,y,null);
@@ -138,7 +140,7 @@ public class Tank {
 
     private void boundsCheck() {
         if(this.x < 0 ) x=0;
-        if(this.y < 60) y=30;
+        if(this.y < 30) y=30;
         if(this.x > TankFrame.GAME_WIDTH - Tank.WIDTH)  x = TankFrame.GAME_WIDTH - Tank.WIDTH;
         if(this.y > TankFrame.GAME_HEIGHT - Tank.HEIGHT) y = TankFrame.GAME_HEIGHT - Tank.HEIGHT;
     }
