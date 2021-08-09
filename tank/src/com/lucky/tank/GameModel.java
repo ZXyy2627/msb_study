@@ -1,12 +1,15 @@
 package com.lucky.tank;
 
+import com.lucky.tank.cor.BulletTankCollider;
+import com.lucky.tank.cor.Collider;
+
 import java.awt.*;
 import java.util.ArrayList;
 
 public class GameModel {
 
     Tank tank = new Tank(200,400,Dir.DOWN, Group.GOOD,this);
-
+    Collider collider = new BulletTankCollider();
     public java.util.List<GameObject> objects = new ArrayList<>();
 
     public void add(GameObject gameObject) {
@@ -42,6 +45,13 @@ public class GameModel {
             objects.get(i).paint(g);
         }
         //碰撞检测
+        for (int i = 0; i < objects.size(); i++) {
+            for (int j = i+1; j < objects.size(); j++) {
+                GameObject o1 = objects.get(i);
+                GameObject o2 = objects.get(j);
+                collider.collide(o1,o2);
+            }
+        }
 //        for (int i = 0; i < bullets.size(); i++) {
 //            for (int j = 0; j < enemies.size(); j++) {
 //                bullets.get(i).collideWith(enemies.get(j));
