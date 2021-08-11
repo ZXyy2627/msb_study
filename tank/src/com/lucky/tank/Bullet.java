@@ -11,7 +11,7 @@ public class Bullet extends GameObject{
     private Dir dir = Dir.DOWN;
     private boolean living = true;
     private Group group = Group.BAD;
-    public GameModel gm = new GameModel();
+    public GameModel gm = GameModel.getInstance();
     //DefaultFactory defaultFactory = new DefaultFactory();
 
     public Rectangle rect = new Rectangle();

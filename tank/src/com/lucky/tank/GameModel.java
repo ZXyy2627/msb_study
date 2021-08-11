@@ -7,7 +7,9 @@ import java.util.ArrayList;
 
 public class GameModel {
 
-    Tank tank = new Tank(200,400,Dir.DOWN, Group.GOOD,this);
+    private static final GameModel INSTANCE = new GameModel();
+
+    Tank tank = new Tank(200, 400, Dir.DOWN, Group.GOOD, this);
     ColliderChain colliderChain = new ColliderChain();
     public java.util.List<GameObject> objects = new ArrayList<>();
 
@@ -15,7 +17,7 @@ public class GameModel {
         this.objects.add(gameObject);
     }
 
-    public void addAll(java.util.List<GameObject> list){
+    public void addAll(java.util.List<GameObject> list) {
         this.objects.addAll(list);
     }
 
@@ -23,10 +25,10 @@ public class GameModel {
         this.objects.remove(gameObject);
     }
 
-    public GameModel() {
-        int initTankCount = Integer.parseInt((String)PropertyMgr.get("initTankCount"));
-        for(int i=0;i<initTankCount;i++){
-            add(new Tank(50 + i * 80, 200, Dir.DOWN,Group.BAD, this));
+    private GameModel() {
+        int initTankCount = Integer.parseInt((String) PropertyMgr.get("initTankCount"));
+        for (int i = 0; i < initTankCount; i++) {
+            add(new Tank(50 + i * 80, 200, Dir.DOWN, Group.BAD, this));
             //tf.enemies.add((Tank) defaultFactory.createTank(50 + i * 80, 200, Dir.DOWN,Group.BAD, tf));
         }
 
@@ -37,6 +39,9 @@ public class GameModel {
         add(new Wall(550, 300, 50, 200));
     }
 
+    public static GameModel getInstance() {
+        return INSTANCE;
+    }
 
     public void paint(Graphics g) {
         Color color = g.getColor();
@@ -51,7 +56,7 @@ public class GameModel {
         }
         //碰撞检测
         for (int i = 0; i < objects.size(); i++) {
-            for (int j = i+1; j < objects.size(); j++) {
+            for (int j = i + 1; j < objects.size(); j++) {
                 GameObject o1 = objects.get(i);
                 GameObject o2 = objects.get(j);
                 colliderChain.collide(o1, o2);
