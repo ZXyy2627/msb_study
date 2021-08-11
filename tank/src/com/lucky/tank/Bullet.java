@@ -14,7 +14,7 @@ public class Bullet extends GameObject{
     public GameModel gm = new GameModel();
     //DefaultFactory defaultFactory = new DefaultFactory();
 
-    Rectangle rect = new Rectangle();
+    public Rectangle rect = new Rectangle();
 
     public Group getGroup() {
         return group;
@@ -108,7 +108,7 @@ public class Bullet extends GameObject{
         return false;
     }
 
-    private void die() {
+    public void die() {
         this.living = false;
     }
 }
