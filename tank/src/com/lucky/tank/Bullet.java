@@ -89,25 +89,6 @@ public class Bullet extends GameObject{
     }
 
 
-    //public void collideWith(AbstractTank tank) {
-    public boolean collideWith(Tank tank){
-        if(this.group == tank.getGroup()) return false;
-
-        //每次做碰撞检测的时候，都new一个Rectangle对象，其实应该只用一个 不该使用多个  这是一个小BUG
-//        Rectangle rect1 = new Rectangle(this.x ,this.y , WIDTH, HEIGHT);
-//        Rectangle rect2 = new Rectangle(tank.getX(), tank.getY(),Tank.WIDTH, Tank.HEIGHT);
-        if (rect.intersects(tank.rect)) {
-            tank.die();
-            this.die();
-            int eX = tank.getX() + Tank.WIDTH / 2 - Explode.WIDTH / 2;
-            int eY = tank.getY() + Tank.HEIGHT/2-Explode.HEIGHT/2;
-            gm.add(new Explode(eX,eY,gm));
-            //tf.explodes.add((Explode) defaultFactory.createExplode(eX,eY,tf));
-            return true;
-        }
-        return false;
-    }
-
     public void die() {
         this.living = false;
     }
