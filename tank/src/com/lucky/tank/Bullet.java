@@ -11,7 +11,6 @@ public class Bullet extends GameObject{
     private Dir dir = Dir.DOWN;
     private boolean living = true;
     private Group group = Group.BAD;
-    public GameModel gm = GameModel.getInstance();
     //DefaultFactory defaultFactory = new DefaultFactory();
 
     public Rectangle rect = new Rectangle();
@@ -32,23 +31,24 @@ public class Bullet extends GameObject{
         this.dir = dir;
     }
 
-    public Bullet(int x, int y, Dir dir,Group group,GameModel gm) {
+    public Bullet(int x, int y, Dir dir,Group group) {
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.group = group;
-        this.gm = gm;
 
         rect.x = this.x;
         rect.y = this.y;
         rect.width = WIDTH;
         rect.height = HEIGHT;
+
+        GameModel.getInstance().add(this);
     }
 
 
     public void paint(Graphics g){
         if(!living){
-            gm.remove(this);
+            GameModel.getInstance().remove(this);
         }
         switch (dir) {
             case UP:

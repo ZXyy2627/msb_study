@@ -9,7 +9,11 @@ public class GameModel {
 
     private static final GameModel INSTANCE = new GameModel();
 
-    Tank tank = new Tank(200, 400, Dir.DOWN, Group.GOOD, this);
+    static {
+        INSTANCE.init();
+    }
+
+    Tank tank;
     ColliderChain colliderChain = new ColliderChain();
     public java.util.List<GameObject> objects = new ArrayList<>();
 
@@ -26,9 +30,14 @@ public class GameModel {
     }
 
     private GameModel() {
+
+    }
+
+    private void init() {
+        tank = new Tank(200, 400, Dir.DOWN, Group.GOOD);
         int initTankCount = Integer.parseInt((String) PropertyMgr.get("initTankCount"));
         for (int i = 0; i < initTankCount; i++) {
-            add(new Tank(50 + i * 80, 200, Dir.DOWN, Group.BAD, this));
+            new Tank(50 + i * 80, 200, Dir.DOWN, Group.BAD);
             //tf.enemies.add((Tank) defaultFactory.createTank(50 + i * 80, 200, Dir.DOWN,Group.BAD, tf));
         }
 

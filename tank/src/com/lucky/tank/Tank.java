@@ -19,15 +19,6 @@ public class Tank extends GameObject{
     int oldX,oldY;
     Rectangle rect = new Rectangle();
     public Group group = Group.BAD;
-    public GameModel gm;
-
-    public GameModel getGm() {
-        return gm;
-    }
-
-    public void setGm(GameModel gm) {
-        this.gm = gm;
-    }
 
     public Group getGroup() {
         return group;
@@ -62,17 +53,19 @@ public class Tank extends GameObject{
     }
 
 
-    public Tank(int x, int y, Dir dir, Group group, GameModel gm) {
+    public Tank(int x, int y, Dir dir, Group group) {
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.group = group;
-        this.gm = gm;
+
 
         rect.x = this.x;
         rect.y = this.y;
         rect.width = WIDTH;
         rect.height = HEIGHT;
+
+        GameModel.getInstance().add(this);
     }
 
 
@@ -93,7 +86,7 @@ public class Tank extends GameObject{
     }
 
     public void paint(Graphics g){
-        if(!living) gm.remove(this);
+        if(!living) GameModel.getInstance().remove(this);
         switch (dir) {
             case UP:
                 g.drawImage(this.group == Group.GOOD?ResourceMgr.goodTankU:ResourceMgr.badTankU,x,y,null);
