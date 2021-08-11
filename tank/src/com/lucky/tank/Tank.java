@@ -16,6 +16,7 @@ public class Tank extends GameObject{
     private boolean living = true;
     private Random random = new Random();
     int x=200,y=200;
+    int oldX,oldY;
     Rectangle rect = new Rectangle();
     public Group group = Group.BAD;
     public GameModel gm;
@@ -111,6 +112,8 @@ public class Tank extends GameObject{
     }
 
     public void move(){
+        oldX = x;
+        oldY = y;
         if(!moving) return;
         switch (dir) {
             case UP:
@@ -155,5 +158,14 @@ public class Tank extends GameObject{
 
     public void die() {
         this.living = false;
+    }
+
+    public void stop() {
+        moving = false;
+    }
+
+    public void back() {
+        x = oldX;
+        y = oldY;
     }
 }

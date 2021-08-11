@@ -1,7 +1,6 @@
 package com.lucky.tank;
 
-import com.lucky.tank.cor.BulletTankCollider;
-import com.lucky.tank.cor.Collider;
+import com.lucky.tank.cor.ColliderChain;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 public class GameModel {
 
     Tank tank = new Tank(200,400,Dir.DOWN, Group.GOOD,this);
-    Collider collider = new BulletTankCollider();
+    ColliderChain colliderChain = new ColliderChain();
     public java.util.List<GameObject> objects = new ArrayList<>();
 
     public void add(GameObject gameObject) {
@@ -49,7 +48,7 @@ public class GameModel {
             for (int j = i+1; j < objects.size(); j++) {
                 GameObject o1 = objects.get(i);
                 GameObject o2 = objects.get(j);
-                collider.collide(o1,o2);
+                colliderChain.collide(o1, o2);
             }
         }
 //        for (int i = 0; i < bullets.size(); i++) {

@@ -90,8 +90,8 @@ public class Bullet extends GameObject{
 
 
     //public void collideWith(AbstractTank tank) {
-    public void collideWith(Tank tank){
-        if(this.group == tank.getGroup()) return;
+    public boolean collideWith(Tank tank){
+        if(this.group == tank.getGroup()) return false;
 
         //每次做碰撞检测的时候，都new一个Rectangle对象，其实应该只用一个 不该使用多个  这是一个小BUG
 //        Rectangle rect1 = new Rectangle(this.x ,this.y , WIDTH, HEIGHT);
@@ -103,7 +103,9 @@ public class Bullet extends GameObject{
             int eY = tank.getY() + Tank.HEIGHT/2-Explode.HEIGHT/2;
             gm.add(new Explode(eX,eY,gm));
             //tf.explodes.add((Explode) defaultFactory.createExplode(eX,eY,tf));
+            return true;
         }
+        return false;
     }
 
     private void die() {

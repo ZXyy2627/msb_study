@@ -9,5 +9,5 @@ import com.lucky.tank.GameObject;
  * @VERSION: 1.0
  */
 public interface Collider {
-    void collide(GameObject o1,GameObject o2);
+    boolean collide(GameObject o1,GameObject o2);
 }
