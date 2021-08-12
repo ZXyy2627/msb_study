@@ -1,4 +1,4 @@
-package com.lucky.testEnum.enum05;
+package com.lucky.studyEnum.enum05;
 
 public enum Gender {
     男,

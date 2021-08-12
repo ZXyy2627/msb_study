@@ -1,4 +1,4 @@
-package com.lucky.testEnum.enum02;
+package com.lucky.studyEnum.enum02;
 
 /**
  * JDK1.5之后使用enum关键子创建枚举类

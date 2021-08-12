@@ -1,4 +1,4 @@
-package com.lucky.testEnum.enum02;
+package com.lucky.studyEnum.enum02;
 
 public class TestSeason {
     public static void main(String[] args) {

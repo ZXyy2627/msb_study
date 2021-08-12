@@ -10,7 +10,7 @@ public class Main {
         //DefaultFactory defaultFactory = new DefaultFactory();
         TankFrame tf = new TankFrame();
         while (true){
-            Thread.sleep(50);
+            Thread.sleep(500);
             tf.repaint();
         }
     }

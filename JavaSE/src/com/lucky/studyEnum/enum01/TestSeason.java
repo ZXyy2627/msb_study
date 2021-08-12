@@ -1,6 +1,4 @@
-package com.lucky.testEnum.enum01;
-
-import com.lucky.testEnum.enum01.Season;
+package com.lucky.studyEnum.enum01;
 
 public class TestSeason {
     public static void main(String[] args) {

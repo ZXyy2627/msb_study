@@ -1,6 +1,6 @@
 package com.lucky.tank;
 
-import com.lucky.tank.strategy.MultiFireStrategy;
+import com.lucky.tank.strategy.DefaultFireStrategy;
 
 import java.awt.*;
 import java.util.Random;
@@ -15,7 +15,6 @@ public class Tank extends GameObject{
     private boolean moving = true;
     private boolean living = true;
     private Random random = new Random();
-    int x=200,y=200;
     int oldX,oldY;
     Rectangle rect = new Rectangle();
     public Group group = Group.BAD;
@@ -104,6 +103,16 @@ public class Tank extends GameObject{
         move();
     }
 
+    @Override
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    @Override
+    public int getHeight() {
+        return HEIGHT;
+    }
+
     public void move(){
         oldX = x;
         oldY = y;
@@ -146,7 +155,7 @@ public class Tank extends GameObject{
     }
 
     public void fire(){
-       new MultiFireStrategy().fire(this);
+       new DefaultFireStrategy().fire(this);
     }
 
     public void die() {

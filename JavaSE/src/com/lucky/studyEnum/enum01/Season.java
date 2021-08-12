@@ -1,4 +1,4 @@
-package com.lucky.testEnum.enum01;
+package com.lucky.studyEnum.enum01;
 
 /**
  * 其实枚举也是一个类，也可以有属性，构造器和方法

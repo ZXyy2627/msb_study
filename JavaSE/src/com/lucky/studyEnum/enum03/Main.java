@@ -1,4 +1,4 @@
-package com.lucky.testEnum.enum03;
+package com.lucky.studyEnum.enum03;
 
 /**
  * 测试枚举类的常见方法
