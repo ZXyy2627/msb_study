@@ -25,4 +25,14 @@ public class MyTest {
         Person person11 = context.getBean("person1", Person.class);
         System.out.println(person11 == person1); //ture  证明默认是单例的
     }
+
+    /**
+     * 测试IOC容器默认是用无参构造器创建对象的，如果没有无参构造器会报错
+     * 抛出异常：BeanInstantiationException   No default constructor found;
+     */
+    @Test
+    public void test2() {
+        Person person1 = context.getBean("person1", Person.class);
+        System.out.println(person1);
+    }
 }
