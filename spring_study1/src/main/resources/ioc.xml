@@ -3,10 +3,40 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 <!--    1.为了解耦，使用ioc容器，配置并初始化bean-->
-    <bean id="person1" class="com.lucky.pojo.Person">
+    <!--<bean id="person1" class="com.lucky.pojo.Person">
         <property name="id" value="1"/>
         <property name="name" value="zhangSan"/>
         <property name="age" value="23"/>
         <property name="gender" value="男"/>
+    </bean>
+    ================================================================================================================================================
+    -->
+
+    <!--2.使用constructor-arg标签配置bean,初始化对象 并且使用name   -->
+    <!--<bean id="person2" class="com.lucky.pojo.Person">
+        <constructor-arg name="id" value="2"/>
+        <constructor-arg name="name" value="liSi"/>
+        <constructor-arg name="age" value="22"/>
+        <constructor-arg name="gender" value="男"/>
+    </bean>
+    =============================================================================================================================================
+    -->
+
+    <!--3.使用constructor-arg标签配置bean，并初始化，使用index属性-->
+    <!--<bean id="person2" class="com.lucky.pojo.Person">
+        <constructor-arg index="2" value="22"/>
+        <constructor-arg index="0" value="2"/>
+        <constructor-arg index="3" value="女"/>
+        <constructor-arg index="1" value="liSi"/>
+    </bean>
+    =============================================================================================================================================
+    -->
+
+    <!--4.使用constructor-arg标签配置bean，并初始化，使用type-->
+    <bean id="person2" class="com.lucky.pojo.Person">
+        <constructor-arg type="java.lang.String" index="1" value="李四"/>
+        <constructor-arg type="java.lang.String" index="3" value="男"/>
+        <constructor-arg type="java.lang.Integer" index="0" value="2"/>
+        <constructor-arg type="java.lang.Integer" index="2" value="22"/>
     </bean>
 </beans>
