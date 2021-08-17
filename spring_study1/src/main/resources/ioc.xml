@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    1.为了解耦，使用ioc容器，配置并初始化bean-->
+    <bean id="person1" class="com.lucky.pojo.Person">
+        <property name="id" value="1"/>
+        <property name="name" value="zhangSan"/>
+        <property name="age" value="23"/>
+        <property name="gender" value="男"/>
+    </bean>
+</beans>
