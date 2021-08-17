@@ -63,4 +63,13 @@ public class MyTest {
         System.out.println(person2);
     }
 
+    /**
+     * 测试使用p命名空间
+     */
+    @Test
+    public void test6() {
+        Person person3 = context.getBean("person3", Person.class);
+        System.out.println(person3);
+    }
+
 }
