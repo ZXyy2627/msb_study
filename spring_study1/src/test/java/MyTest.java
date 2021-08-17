@@ -54,4 +54,13 @@ public class MyTest {
         System.out.println(person2);
     }
 
+    /**
+     * 测试使用constructor-arg配置bean，并初始化，使用type
+     */
+    @Test
+    public void test5() {
+        Person person2 = context.getBean("person2", Person.class);
+        System.out.println(person2);
+    }
+
 }
