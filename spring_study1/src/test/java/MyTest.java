@@ -45,6 +45,13 @@ public class MyTest {
         System.out.println(person2);
     }
 
-
+    /**
+     * 使用constructor-arg标签配置bean，并初始化，使用index属性
+     */
+    @Test
+    public void test4() {
+        Person person2 = context.getBean("person2", Person.class);
+        System.out.println(person2);
+    }
 
 }
