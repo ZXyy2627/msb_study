@@ -2,7 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
 <!--    1.为了解耦，使用ioc容器，配置并初始化bean-->
     <!--<bean id="person1" class="com.lucky.pojo.Person">
         <property name="id" value="1"/>
@@ -165,10 +168,19 @@
     -->
 
     <!--15.配置第三方bean对象  以数据库连接池配置为例 首先以直接再xml配置文件写链接参数为例-->
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    <!--<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="username" value="root"/>
         <property name="password" value="bbbb"/>
         <property name="url" value="jdbc:mysql://127.0.0.1:3306/mall?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false"/>
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+    </bean>-->
+
+    <!--需要先添加db.properties配置文件-->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="url" value="${url}"/>
+        <property name="driverClassName" value="${driverClassName}"/>
     </bean>
 </beans>
