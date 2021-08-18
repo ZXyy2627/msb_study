@@ -183,4 +183,11 @@
         <property name="url" value="${url}"/>
         <property name="driverClassName" value="${driverClassName}"/>
     </bean>
+
+    <!--16.spring中的自动装配 通过autowire属性，有4种值
+        default/no :不自动装配
+        byName:根据id和setter方法自动装配
+        byType:根据构造器参数类型进行自动装配,如果有多个不自动装配
+        constructor:和byType类似
+    -->
 </beans>
