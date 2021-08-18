@@ -136,10 +136,15 @@
     -->
 
     <!--11.实例工厂创建对象 实例工厂需要先配置工厂bean-->
+    <!--
     <bean id="instanceFactory" class="com.lucky.factory.InstanceFactory"/>
     <bean id="person9" class="com.lucky.pojo.Person" factory-bean="instanceFactory" factory-method="getInstance">
         <constructor-arg name="name" value="余9"/>
     </bean>
     <bean id="person99" class="com.lucky.pojo.Person" factory-bean="instanceFactory" factory-method="getInstance"/>
+    ===================================================================================================================
+    -->
 
+    <!--12.为了解决单例立即加载对象的问题，可以通过实现FactoryBean接口的方式完成-->
+    <bean id="person11" class="com.lucky.factory.MyFactoryBean"/>
 </beans>

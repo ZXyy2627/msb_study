@@ -165,4 +165,14 @@ public class MyTest {
         Person person99 = context.getBean("person99", Person.class);
         System.out.println(person99);
     }
+
+    /**
+     * 测试实现FactoryBean接口创建单例对象延迟加载
+     *
+     */
+    @Test
+    public void test17() {
+        Person person11 = context.getBean("person11", Person.class);
+        System.out.println(person11);
+    }
 }
