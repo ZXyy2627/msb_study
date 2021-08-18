@@ -154,4 +154,15 @@ public class MyTest {
         Person person8 = context.getBean("person8", Person.class);
         System.out.println(person8);
     }
+
+    /**
+     * 测试使用实例工厂创建对象
+     */
+    @Test
+    public void test16() {
+        Person person9 = context.getBean("person9", Person.class);
+        System.out.println(person9);
+        Person person99 = context.getBean("person99", Person.class);
+        System.out.println(person99);
+    }
 }

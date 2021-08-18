@@ -131,6 +131,15 @@
         使用静态工厂创建对象，不需要配置工厂bean，直接将class属性指定为工厂bean，工厂方法指定为创建对象的静态方法
         但是获取到的是Person对象 此处相当于调用StaticFactoryBean.getInstance()方法
     -->
-    <bean id="person8" class="com.lucky.factory.StaticFactoryBean" factory-method="getInstance"/>
+    <!--<bean id="person8" class="com.lucky.factory.StaticFactoryBean" factory-method="getInstance"/>
+    ===============================================================================================================
+    -->
+
+    <!--11.实例工厂创建对象 实例工厂需要先配置工厂bean-->
+    <bean id="instanceFactory" class="com.lucky.factory.InstanceFactory"/>
+    <bean id="person9" class="com.lucky.pojo.Person" factory-bean="instanceFactory" factory-method="getInstance">
+        <constructor-arg name="name" value="余9"/>
+    </bean>
+    <bean id="person99" class="com.lucky.pojo.Person" factory-bean="instanceFactory" factory-method="getInstance"/>
 
 </beans>
