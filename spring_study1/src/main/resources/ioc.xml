@@ -44,5 +44,20 @@
     -->
 
     <!--5.使用p命名空间配置bean-->
-    <bean id="person3" class="com.lucky.pojo.Person" p:id="3" p:name="王五" p:age="33" p:gender="女"/>
+    <!--<bean id="person3" class="com.lucky.pojo.Person" p:id="3" p:name="王五" p:age="33" p:gender="女"/>-->
+
+    <bean id="person4" class="com.lucky.pojo.Person">
+        <property name="id" value="4"/>
+        <property name="name" value="李四"/>
+        <property name="age" value="44"/>
+        <property name="gender" value="男"/>
+        <!--注入数组类型的值-->
+        <property name="hobbies">
+            <array>
+                <value>table_tennis</value>
+                <value>football</value>
+                <value>girl</value>
+            </array>
+        </property>
+    </bean>
 </beans>

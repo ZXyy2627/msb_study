@@ -72,4 +72,12 @@ public class MyTest {
         System.out.println(person3);
     }
 
+    /**
+     * 为bean复杂类型属性赋值
+     */
+    @Test
+    public void test7() {
+        Person person4 = context.getBean("person4", Person.class);
+        System.out.println(person4);
+    }
 }
