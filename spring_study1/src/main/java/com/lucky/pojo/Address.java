@@ -2,6 +2,7 @@ package com.lucky.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @Author: lucky_x
@@ -10,13 +11,10 @@ import lombok.Data;
  * @VERSION: 1.0
  */
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class Address {
     private String province;
     private String city;
     private String town;
-
-    public Address(){
-        System.out.println("对象已经创建了");
-    }
 }

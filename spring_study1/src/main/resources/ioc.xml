@@ -75,6 +75,14 @@
                 </bean>
             </list>
         </property>
+        <property name="set">
+            <set>
+                <!--如果有重复的，不会报错，spring会直接去掉-->
+                <value>555</value>
+                <value>666</value>
+                <value>555</value>
+            </set>
+        </property>
     </bean>
     <bean id="address" class="com.lucky.pojo.Address">
         <property name="province" value="湖北"/>

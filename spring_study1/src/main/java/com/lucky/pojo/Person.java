@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @Author: lucky_x
@@ -24,4 +25,5 @@ public class Person {
     private String[] hobbies;
     private Address address;
     private List<Address> lists;
+    private Set<String> set;
 }
