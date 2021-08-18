@@ -46,12 +46,13 @@
     <!--5.使用p命名空间配置bean-->
     <!--<bean id="person3" class="com.lucky.pojo.Person" p:id="3" p:name="王五" p:age="33" p:gender="女"/>-->
 
-    <bean id="person4" class="com.lucky.pojo.Person">
+    <!--6.为bean的复杂对象进行赋值-->
+    <!--<bean id="person4" class="com.lucky.pojo.Person">
         <property name="id" value="4"/>
         <property name="name" value="李四"/>
         <property name="age" value="44"/>
         <property name="gender" value="男"/>
-        <!--注入数组类型的值-->
+        &lt;!&ndash;注入数组类型的值&ndash;&gt;
         <property name="hobbies">
             <array>
                 <value>table_tennis</value>
@@ -59,7 +60,7 @@
                 <value>girl</value>
             </array>
         </property>
-        <!--为bean注入其它对象-->
+        &lt;!&ndash;为bean注入其它对象&ndash;&gt;
         <property name="address" ref="address"/>
         <property name="lists">
             <list>
@@ -77,7 +78,7 @@
         </property>
         <property name="set">
             <set>
-                <!--如果有重复的，不会报错，spring会直接去掉-->
+                &lt;!&ndash;如果有重复的，不会报错，spring会直接去掉&ndash;&gt;
                 <value>555</value>
                 <value>666</value>
                 <value>555</value>
@@ -100,5 +101,16 @@
         <property name="province" value="湖北"/>
         <property name="city" value="武汉"/>
         <property name="town" value="硚口"/>
+    </bean>-->
+
+    <!--继承关系的bean配置-->
+    <bean id="person5" class="com.lucky.pojo.Person">
+        <property name="id" value="5"/>
+        <property name="name" value="李四爹"/>
+        <property name="age" value="55"/>
+    </bean>
+    <bean id="son" class="com.lucky.pojo.Person" parent="person5">
+        <property name="gender" value="女"/>
+        <property name="name" value="李花花"/>
     </bean>
 </beans>
