@@ -1,7 +1,10 @@
+import com.alibaba.druid.pool.DruidDataSource;
 import com.lucky.pojo.Person;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.sql.SQLException;
 
 /**
  * @Author: lucky_x
@@ -194,5 +197,15 @@ public class MyTest {
     public void test19() {
         Person person13 = context.getBean("person13", Person.class);
         System.out.println(person13);
+    }
+
+    /**
+     * 测试配置第三方bean  例如数据库连接参数
+     */
+    @Test
+    public void test20() throws SQLException {
+        DruidDataSource dataSource = context.getBean("dataSource", DruidDataSource.class);
+        System.out.println(dataSource);
+        System.out.println(dataSource.getConnection());
     }
 }
