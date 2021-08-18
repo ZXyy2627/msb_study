@@ -137,5 +137,12 @@ public class MyTest {
         System.out.println(son);
     }
 
-
+    /**
+     * 为bean配置依赖关系  使用depends on
+     */
+    @Test
+    public void test14() {
+        Person person6 = context.getBean("person6", Person.class);
+        System.out.println(person6);
+    }
 }

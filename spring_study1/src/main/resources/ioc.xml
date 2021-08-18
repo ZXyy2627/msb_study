@@ -104,7 +104,7 @@
     </bean>-->
 
     <!--继承关系的bean配置-->
-    <bean id="person5" class="com.lucky.pojo.Person">
+    <!--<bean id="person5" class="com.lucky.pojo.Person">
         <property name="id" value="5"/>
         <property name="name" value="李四爹"/>
         <property name="age" value="55"/>
@@ -112,5 +112,16 @@
     <bean id="son" class="com.lucky.pojo.Person" parent="person5">
         <property name="gender" value="女"/>
         <property name="name" value="李花花"/>
+    </bean>-->
+
+    <!--8.创建bean的时候的依赖关系  使用depends-on-->
+    <bean id="person6" class="com.lucky.pojo.Person" depends-on="address">
+        <property name="address" ref="address"/>
     </bean>
+    <bean id="address" class="com.lucky.pojo.Address">
+        <property name="province" value="湖北"/>
+        <property name="city" value="武汉"/>
+        <property name="town" value="硚口"/>
+    </bean>
+
 </beans>
