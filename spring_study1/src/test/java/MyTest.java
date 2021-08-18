@@ -145,4 +145,13 @@ public class MyTest {
         Person person6 = context.getBean("person6", Person.class);
         System.out.println(person6);
     }
+
+    /**
+     * 使用静态工厂创建bean 使用静态工厂创建bean，不需要将工厂实例化，也就是说不需要配置该工厂的bean
+     */
+    @Test
+    public void test15() {
+        Person person8 = context.getBean("person8", Person.class);
+        System.out.println(person8);
+    }
 }
