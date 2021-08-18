@@ -30,4 +30,12 @@ public class Person {
     private Set<String> set;
     private Map<String,Object> map;
     private Properties props;
+
+    public void init() {
+        System.out.println("初始化对象的方法");
+    }
+
+    public void destroy() {
+        System.out.println("销毁对象的方法");
+    }
 }

@@ -175,4 +175,24 @@ public class MyTest {
         Person person11 = context.getBean("person11", Person.class);
         System.out.println(person11);
     }
+
+    /**
+     * 测试指定bean的init-method 和 destroy-method
+     */
+    @Test
+    public void test18() {
+        Person person12 = context.getBean("person12", Person.class);
+        System.out.println(person12);
+        //当调用关闭容器的方法时，对象会被销毁
+        ((ClassPathXmlApplicationContext)context).close();
+    }
+
+    /**
+     * 测试初始化增强方法
+     */
+    @Test
+    public void test19() {
+        Person person13 = context.getBean("person13", Person.class);
+        System.out.println(person13);
+    }
 }

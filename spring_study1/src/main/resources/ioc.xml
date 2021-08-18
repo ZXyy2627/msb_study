@@ -146,5 +146,19 @@
     -->
 
     <!--12.为了解决单例立即加载对象的问题，可以通过实现FactoryBean接口的方式完成-->
-    <bean id="person11" class="com.lucky.factory.MyFactoryBean"/>
+    <!--<bean id="person11" class="com.lucky.factory.MyFactoryBean"/>-->
+
+
+    <!--13.容器创建对象的初始化方法和销毁方法-->
+    <!--<bean id="person12" class="com.lucky.pojo.Person" init-method="init" destroy-method="destroy">
+        <property name="id" value="1111"/>
+    </bean>
+    =================================================================================================================================================
+    -->
+
+    <!--14.配置bean初始化前后调用增强方法-->
+    <bean class="com.lucky.pojo.PersonPostProcessor"/>
+    <bean id="person13" class="com.lucky.pojo.Person" init-method="init">
+        <property name="id" value="13131313"/>
+    </bean>
 </beans>
