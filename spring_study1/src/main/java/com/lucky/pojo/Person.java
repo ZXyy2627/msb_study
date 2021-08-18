@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 /**
@@ -28,4 +29,5 @@ public class Person {
     private List<Address> lists;
     private Set<String> set;
     private Map<String,Object> map;
+    private Properties props;
 }

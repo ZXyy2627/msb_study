@@ -89,6 +89,12 @@
                 <entry key="bbb" value-ref="address"/>
             </map>
         </property>
+        <property name="props">
+            <props>
+                <prop key="jdbc.username">aaa</prop>
+                <prop key="jdbc.password">bbb</prop>
+            </props>
+        </property>
     </bean>
     <bean id="address" class="com.lucky.pojo.Address">
         <property name="province" value="湖北"/>
