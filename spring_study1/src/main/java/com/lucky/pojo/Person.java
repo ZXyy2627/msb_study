@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @Author: lucky_x
  * @Date: 2021/8/17 - 08 - 17 - 22:02
@@ -21,4 +23,5 @@ public class Person {
 
     private String[] hobbies;
     private Address address;
+    private List<Address> lists;
 }

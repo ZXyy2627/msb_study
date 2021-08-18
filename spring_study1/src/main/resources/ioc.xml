@@ -61,6 +61,20 @@
         </property>
         <!--为bean注入其它对象-->
         <property name="address" ref="address"/>
+        <property name="lists">
+            <list>
+                <bean  class="com.lucky.pojo.Address">
+                    <property name="province" value="湖南"/>
+                    <property name="city" value="长沙"/>
+                    <property name="town" value="bb"/>
+                </bean>
+                <bean class="com.lucky.pojo.Address">
+                    <property name="province" value="广东"/>
+                    <property name="city" value="广州"/>
+                    <property name="town" value="白云"/>
+                </bean>
+            </list>
+        </property>
     </bean>
     <bean id="address" class="com.lucky.pojo.Address">
         <property name="province" value="湖北"/>
