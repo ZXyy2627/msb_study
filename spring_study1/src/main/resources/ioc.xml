@@ -83,6 +83,12 @@
                 <value>555</value>
             </set>
         </property>
+        <property name="map">
+            <map>
+                <entry key="aaa" value="111"/>
+                <entry key="bbb" value-ref="address"/>
+            </map>
+        </property>
     </bean>
     <bean id="address" class="com.lucky.pojo.Address">
         <property name="province" value="湖北"/>

@@ -107,4 +107,13 @@ public class MyTest {
         Person person4 = context.getBean("person4", Person.class);
         System.out.println(person4);
     }
+
+    /**
+     * 为bean配置map对象
+     */
+    @Test
+    public void test11() {
+        Person person4 = context.getBean("person4", Person.class);
+        System.out.println(person4);
+    }
 }
