@@ -6,19 +6,15 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author: lucky_x
- * @Date: 2021/8/17 - 08 - 17 - 22:02
+ * @Date: 2021/8/18 - 08 - 18 - 13:32
  * @Description: com.lucky.pojo
  * @VERSION: 1.0
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Person {
-    private Integer id;
-    private String name;
-    private Integer age;
-    private String gender;
-
-    private String[] hobbies;
-    private Address address;
+public class Address {
+    private String province;
+    private String city;
+    private String town;
 }

@@ -59,5 +59,12 @@
                 <value>girl</value>
             </array>
         </property>
+        <!--为bean注入其它对象-->
+        <property name="address" ref="address"/>
+    </bean>
+    <bean id="address" class="com.lucky.pojo.Address">
+        <property name="province" value="湖北"/>
+        <property name="city" value="武汉"/>
+        <property name="town" value="硚口"/>
     </bean>
 </beans>
