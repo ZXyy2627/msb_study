@@ -11,6 +11,7 @@
       <list>
         <option value="$PROJECT_DIR$/designPattern/pom.xml" />
         <option value="$PROJECT_DIR$/spring_study1/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_annotation_study/pom.xml" />
       </list>
     </option>
   </component>

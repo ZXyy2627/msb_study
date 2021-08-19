@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/algothrim/algothrim.iml" filepath="$PROJECT_DIR$/algothrim/algothrim.iml" />
       <module fileurl="file://$PROJECT_DIR$/designPattern/designPattern.iml" filepath="$PROJECT_DIR$/designPattern/designPattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/msb_study.iml" filepath="$PROJECT_DIR$/msb_study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_annotation_study/spring_annotation_study.iml" filepath="$PROJECT_DIR$/spring_annotation_study/spring_annotation_study.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_study1/spring_study1.iml" filepath="$PROJECT_DIR$/spring_study1/spring_study1.iml" />
       <module fileurl="file://$PROJECT_DIR$/tank/tank.iml" filepath="$PROJECT_DIR$/tank/tank.iml" />
     </modules>
