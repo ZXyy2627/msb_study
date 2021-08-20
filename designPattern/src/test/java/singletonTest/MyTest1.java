@@ -1,6 +1,7 @@
 package singletonTest;
 
-import com.lucky.testPattern.singleton2.Singleton_2;
+import com.lucky.testPattern.singleton2.S3;
+import com.lucky.testPattern.singleton2.S6;
 import org.junit.Test;
 
 /**
@@ -12,12 +13,23 @@ import org.junit.Test;
 public class MyTest1 {
 
     /**
-     * 测试懒汉式
+     * 测试饿汉式
      */
     @Test
     public void test1() {
-        Singleton_2 s1 = Singleton_2.getInstance();
-        Singleton_2 s2 = Singleton_2.getInstance();
+        S3 s1 = S3.getInstance();
+        S3 s2 = S3.getInstance();
         System.out.println(s1 == s2);
+        S6 s3 = S6.getInstance();
+        S6 s4 = S6.getInstance();
+        System.out.println(s1 == s2);
+    }
+
+    /**
+     * 多线程测试
+     */
+    @Test
+    public void test2() {
+
     }
 }
