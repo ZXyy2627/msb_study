@@ -1,4 +1,4 @@
-package com.lucky.testPattern.singleton;
+package com.lucky.testPattern.singleton1;
 
 /**
  * 使用双重检查解决同步代码块的线程安全问题

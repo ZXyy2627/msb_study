@@ -1,4 +1,4 @@
-package com.lucky.testPattern.singleton;
+package com.lucky.testPattern.singleton1;
 
 /**
  * 使用静态内部类的方式加载单例

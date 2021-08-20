@@ -1,4 +1,4 @@
-package com.lucky.testPattern.singleton;
+package com.lucky.testPattern.singleton1;
 
 /**
  * 饿汉式

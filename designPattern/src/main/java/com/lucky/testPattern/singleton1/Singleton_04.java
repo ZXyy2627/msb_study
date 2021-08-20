@@ -1,4 +1,4 @@
-package com.lucky.testPattern.singleton;
+package com.lucky.testPattern.singleton1;
 
 /**
  * 使用同步方法解决线程安全问题

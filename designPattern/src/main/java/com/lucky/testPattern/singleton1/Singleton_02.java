@@ -1,4 +1,4 @@
-package com.lucky.testPattern.singleton;
+package com.lucky.testPattern.singleton1;
 
 /**
  * 饿汉式：使用静态代码块加载，当类加载的时候，就加载这个对象
