@@ -7,11 +7,11 @@ package com.lucky.patterns.factoryMethod.simpleFactory;
  * @VERSION: 1.0
  */
 public class SimpleFactoryOfPerson {
-    public Person creatStudent() {
+    public static Person creatStudent() {
         return new Student();
     }
 
-    public Person createEmployee() {
+    public static Person createEmployee() {
         return new Employee();
     }
 }

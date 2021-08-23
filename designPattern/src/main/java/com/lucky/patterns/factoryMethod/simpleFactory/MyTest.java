@@ -8,11 +8,10 @@ package com.lucky.patterns.factoryMethod.simpleFactory;
  */
 public class MyTest {
     public static void main(String[] args) {
-        SimpleFactoryOfPerson factory = new SimpleFactoryOfPerson();
-        Person employee = factory.createEmployee();
+        Person employee = SimpleFactoryOfPerson.createEmployee();
         employee.eat();
         employee.sleep();
-        Person student = factory.creatStudent();
+        Person student = SimpleFactoryOfPerson.creatStudent();
         student.eat();
         student.sleep();
     }
