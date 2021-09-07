@@ -10,13 +10,15 @@
         <module name="spring_study1" />
         <module name="spring_aop_study" />
         <module name="designPattern" />
-        <module name="juc" />
         <module name="spring_annotation_study" />
+        <module name="juc_study" />
+        <module name="juc_test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="designPattern" target="8" />
-      <module name="juc" target="1.8" />
+      <module name="juc_study" target="1.8" />
+      <module name="juc_test" target="1.8" />
       <module name="spring_annotation_study" target="1.8" />
       <module name="spring_aop_study" target="1.8" />
       <module name="spring_study1" target="1.8" />
