@@ -29,7 +29,7 @@ public class Account {
 
     public static void main(String[] args) {
         Account a = new Account();
-        new Thread(() -> a.set("zhangsan",100.0)).start();
+        new Thread(() -> a.set("zhangSan",100.0)).start();
 
         try {
             Thread.sleep(1);
