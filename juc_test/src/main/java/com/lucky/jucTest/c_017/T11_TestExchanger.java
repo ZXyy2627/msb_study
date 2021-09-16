@@ -7,6 +7,8 @@ import java.util.concurrent.Exchanger;
  * @Date: 2021/9/16 - 09 - 16 - 20:57
  * @Description: com.lucky.jucTest.c_017
  * @VERSION: 1.0
+ *
+ * 只能两个线程之间两两交换
  */
 public class T11_TestExchanger {
 
